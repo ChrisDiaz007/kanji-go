@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   namespace :api do
+    post 'login', to: 'sessions#create'
+    delete 'logout', to: 'sessions#destroy'
+    post 'signup', to: 'registrations#create'
     resources :kanjis, only: [:index, :show]
     resources :user_kanjis, only: [:index, :show, :create]
   end
